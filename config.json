@@ -1,0 +1,23 @@
+{
+	"home_url" : "http://aujourdhui.ma/",
+	"" : "We can use nav_ul_id or nav_ul_class depends on the site",
+	"nav_ul_id" : "menu-main",
+	"nav_ul_class" : "main-menu main-default-menu",
+	"Pagination" : "/page/{}",
+	"div_page_class" : "cat-body no-head",
+	"div_page_id" : "",
+	"div_item_class" : "",
+	"div_comment_list_id" : "",
+	"div_comment_list_class" : "",
+	"comment_list_balise" : "ol",
+	"comment_list_class" : "comment-list",
+	"comment_class" : "comment-wrap",
+	"article_title _class" : "entry-title",
+	"comment_text_class" : "comment-content comment",
+	"comment_text_balise" : "section",
+	"comment_vote_class" : "",
+	"comment_date_balise" : "time",
+	"comment_date_class" : "comment-meta commentmetadata ",
+	"file_name" : "aujourdhui"
+
+}

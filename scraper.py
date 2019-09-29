@@ -113,24 +113,28 @@ def get_article_comments(url) :
     html = get_html(url)
     if html :
         liste = html.find_all('div', class_=data['comment_class'])
-        comments = {'article' : [], 'date' : [], 'text' : [], 'vote' : []}
-        article_title = html.find('h1', class_=data['article_title _class']).get_text()
-        article_title = article_title.replace(',', ' ')
-        for comment in liste:
-            if data["comment_text_balise"]!="" :
-                text = comment.find(data["comment_text_balise"], class_=data['comment_text_class']).get_text()
-            else:
-                text = comment.find('div', class_=data['comment_text_class']).get_text()
-            text = text.replace('،', ' ')           
-            text = text.replace(',', ' ')
-            if data['comment_vote_class']!="" :
-                vote = comment.find('div', class_=data['comment_vote_class']).get_text()
-                comments['vote'].append(vote.replace('\n', ''))
-            comments['article'].append(article_title)
-            comments['date'].append(comment.find(data['comment_date_balise']).get_text())
-            
-            comments['text'].append(text.replace('\n', ' '))
-            
+        if liste:
+            comments = {'article' : [], 'date' : [], 'text' : [], 'vote' : []}
+            article_title = html.find('h1', class_=data['article_title_class']).get_text()
+            i = 0
+            for comment in liste:
+                if data["comment_text_balise"]!="" and comment.find(data["comment_text_balise"], class_=data['comment_text_class']) :
+                    text = comment.find(data["comment_text_balise"], class_=data['comment_text_class']).get_text()
+
+                elif comment.find('div', class_=data['comment_text_class']):
+                    text = comment.find('div', class_=data['comment_text_class']).get_text()
+                else :
+                    continue
+                text = text.replace('،', ' ')
+                text = text.replace(',', ' ')
+                if data['comment_vote_class']!="" :
+                    vote = comment.find('div', class_=data['comment_vote_class']).get_text()
+                    comments['vote'].append(vote.replace('\n', ''))
+                comments['article'].append(article_title)
+                comments['date'].append(comment.find(data['comment_date_balise']).get_text())
+                comments['text'].append(text.replace('\n', ' '))
+                i = i+1
+ 
         return comments
 
 

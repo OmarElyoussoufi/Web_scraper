@@ -1,4 +1,3 @@
-
 # Web Scraper
 A Web scraper that can help extarct comments from infromational websites then load them in a csv file.
 
@@ -79,6 +78,12 @@ pip install pandas
 3. Run the pyhton's script [**scraper.py**](scraper.py). Extracting data from the targeted wesite will take time, thus you have to wait to extarct the maximum of data, be patient.
 
 4. The **csv file** will be stored in the same repository cloned, with the name that you have chosen above.
+
+
+
+
+
+
 
 
 

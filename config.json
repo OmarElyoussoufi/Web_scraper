@@ -1,6 +1,5 @@
 {
 	"home_url" : "https://al3omk.com/",
-	"" : "We can use nav_ul_id or nav_ul_class depends on the site",
 	"nav_ul_id" : "menu-main",
 	"nav_ul_class" : "menu",
 	"Pagination" : "/page/{}",
@@ -13,7 +12,6 @@
 	"comment_text_class" : "comment",
 	"comment_vote_class" : "",
 	"comment_date_tag" : "time",
-	"comment_date_class" : "comment-time",
 	"file_name" : "al3omk"
 
 }

@@ -109,17 +109,17 @@ def get_page_articles(url) :
 
 
 #GET CONTENT, DATE AND VOTES OF ALL COMMENTS OF AN ARTICLE
-def get_article_comments(url) :
+def get_article_comments(url, categorie) :
     html = get_html(url)
     if html :
         liste = html.find_all('div', class_=data['comment_class'])
         if liste:
-            comments = {'article' : [], 'date' : [], 'text' : [], 'vote' : []}
+            comments = {'article' : [], 'categorie' : [], 'date' : [], 'text' : [], 'vote' : []}
             article_title = html.find('h1', class_=data['article_title_class']).get_text()
-            i = 0
+
             for comment in liste:
-                if data["comment_text_balise"]!="" and comment.find(data["comment_text_balise"], class_=data['comment_text_class']) :
-                    text = comment.find(data["comment_text_balise"], class_=data['comment_text_class']).get_text()
+                if data["comment_text_tag"]!="" and comment.find(data["comment_text_tag"], class_=data['comment_text_class']) :
+                    text = comment.find(data["comment_text_tag"], class_=data['comment_text_class']).get_text()
 
                 elif comment.find('div', class_=data['comment_text_class']):
                     text = comment.find('div', class_=data['comment_text_class']).get_text()
@@ -131,9 +131,9 @@ def get_article_comments(url) :
                     vote = comment.find('div', class_=data['comment_vote_class']).get_text()
                     comments['vote'].append(vote.replace('\n', ''))
                 comments['article'].append(article_title)
-                comments['date'].append(comment.find(data['comment_date_balise']).get_text())
+                comments['date'].append(comment.find(data['comment_date_tag']).get_text())
                 comments['text'].append(text.replace('\n', ' '))
-                i = i+1
+                comments['categorie'].append(categorie.replace('\n', ''))
  
         return comments
 
@@ -160,9 +160,9 @@ for topic in get_topic_list(url) :
 
 file = data['file_name'] + '.csv'
 if data['comment_vote_class']=="" :
-    attr = ['article', 'date', 'text']
+    attr = ['article', 'categorie', 'date', 'text']
 else:
-    attr = ['article', 'date', 'text', 'vote']
+    attr = ['article', 'categorie', 'date', 'text', 'vote']
 
 
 categories = get_categorie_url(url)
@@ -189,7 +189,7 @@ for key in categories :
         for li in lis :
             html = get_html(li)
             if html :
-                comments = get_article_comments(li)
+                comments = get_article_comments(li, key)
                 content = pd.DataFrame(comments, columns=attr)
                 print(content)
                 content.to_csv(file, mode='a', index=False, header=False)

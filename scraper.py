@@ -112,9 +112,9 @@ def get_page_articles(url) :
 def get_article_comments(url, categorie) :
     html = get_html(url)
     if html :
+        comments = {'article' : [], 'categorie' : [], 'date' : [], 'text' : [], 'vote' : []}
         liste = html.find_all('div', class_=data['comment_class'])
         if liste:
-            comments = {'article' : [], 'categorie' : [], 'date' : [], 'text' : [], 'vote' : []}
             article_title = html.find('h1', class_=data['article_title_class']).get_text()
 
             for comment in liste:

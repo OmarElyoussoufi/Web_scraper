@@ -1,5 +1,5 @@
 # Web Scraper
-A Web scraper that can help extarct comments from infromational websites then load them in a csv file.
+A Web scraper that can help extarct comments from informational websites then load them in a csv file.
 
 ## Description
 
@@ -7,7 +7,7 @@ Web scraping is a technique currently used by Data Scientist, Data Analysts and 
 
 This technique consists on parsing the html code of a website into a programming language such as Python and then manipulated to get data/text from it.
 
-This tool is a solution to scrape comments content and details from informational websites by adding a configuration of the trageted wesite in the **config.json** file. 
+This tool is a solution to scrape comments content and details from informational websites by adding a configuration of the trageted website in the **config.json** file. 
 
 ## Requirements
 
@@ -39,7 +39,7 @@ pip install pandas
 
 ![](images/ul_tag.jpg)
 
-* ***nav_ul_id :*** inspect the navigation bar of the website and copy and paste the **id** of **ul** tag if ther is one, if it doesn't exist then let it empty (like in the screenshot above).
+* ***nav_ul_id :*** inspect the navigation bar of the website and copy and paste the **id** of **ul** tag if there is one, if it doesn't exist then let it empty (like in the screenshot above).
 * ***nav_ul_class :*** inspect the navigation bar of the website and copy and paste the **class** of **ul** tag if ther is one, if it doesn't exist then let it empty (like in the screenshot above).
 
 ![](images/Pagination.jpg)
@@ -75,7 +75,7 @@ pip install pandas
 
 * ***file_name :*** choose a name for the **csv file** where the extracted data will be stored.
 
-3. Run the pyhton's script [**scraper.py**](scraper.py). Extracting data from the targeted wesite will take time, thus you have to wait to extarct the maximum of data, be patient.
+3. Run the pyhton's script [**scraper.py**](scraper.py). Extracting data from the targeted website will take time, thus you have to wait to extarct the maximum of data, be patient.
 
 4. The **csv file** will be stored in the same repository cloned, with the name that you have chosen above.
 
